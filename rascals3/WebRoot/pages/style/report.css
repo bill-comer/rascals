@@ -1,0 +1,65 @@
+
+table.mprnRegistrationStatusTable
+{
+	font-family:arial;
+	margin:10px 0pt 5px;
+	font-size:8pt;
+	text-align:center;
+}
+
+.mprnRegistrationStatusTable thead tr th, table.tablesorter tfoot tr th, table.tablesorter tbody tr th
+{
+	background-color: #D4D4D4;
+	font-size: 8pt;
+	padding: 4px;
+	border-style: solid;
+	border-color: grey;
+	border-width: 1px;
+}
+
+table.mprnRegistrationStatusTable thead tr .header
+{
+	background-image: url(../images/bg.gif);
+	background-repeat: no-repeat;
+	background-position: center right;
+	cursor: pointer;
+}
+
+table.mprnRegistrationStatusTable tr
+{
+	color: #3D3D3D;
+	cursor:pointer; 
+	background-color:white;
+}
+
+table.mprnRegistrationStatusTable tr:hover
+{
+	cursor:pointer; background-color:#EEEEEE;
+}
+
+
+
+table.mprnRegistrationStatusTable tr.green{color:black;cursor:pointer;background-color:#c5fad9;}
+table.mprnRegistrationStatusTable tr.green:hover{color:black;cursor:pointer;background-color:#a8fac6;}
+
+.mprnRegistrationStatusTable tbody td {padding: 4px;vertical-align: top;border-width: 1px;border-style: solid;border-color: #CDCDCD;white-space:no-wrap;vertical-align: middle;back}
+
+
+.mprnRegistrationStatusTable tbody td.noStyle
+{
+	padding: 4px;
+	vertical-align: top;
+	border-width: 0px;
+	border-style: none;
+	white-space:no-wrap;
+	vertical-align:middle;
+	background-color: white;
+}
+
+.mprnRegistrationStatusTable tbody td.change {background-color:#ffff97;padding: 4px;vertical-align: top;border-width: 1px;border-style: solid;border-color: #CDCDCD;white-space:no-wrap;vertical-align: middle;back}
+table.mprnRegistrationStatusTable tbody tr.odd td {background-color:#F7D7B7;}
+table.mprnRegistrationStatusTable thead tr .headerSortUp {background-image: url(../images/asc.gif);}
+table.mprnRegistrationStatusTable thead tr .headerSortDown {background-image: url(../images/desc.gif);}
+
+
+

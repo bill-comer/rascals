@@ -1,6 +1,0 @@
-<aspectj>
-<aspects>
-<aspect name="uk.co.utilisoft.parms.audit.AuditAspect"/>
-</aspects>
-</aspectj>
-

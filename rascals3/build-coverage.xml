@@ -1,0 +1,282 @@
+<project name="parms Test Coverage"
+         basedir="."
+         default="test-coverage-dev"
+         xmlns:ivy="antlib:org.apache.ivy.ant" >
+
+
+  <property file="build.properties"/>
+
+  <property name="ivy.install.version" value="2.1.0" />
+  <property name="ivy.jar.dir" value="${basedir}/ivy" />
+  <property name="ivy.jar.file" value="${ivy.jar.dir}/ivy.jar" />
+  <property name = "ivy.lib.dir" value="lib" />
+
+  <path id="lib.path.id">
+    <fileset dir="${ivy.lib.dir}" />
+  </path>
+
+  <property name="prod.base.dir" value="../../build/semcommon" />
+  <property name="prod.results.dir" value="../../report/semcommon" />
+  <property name="test.lib.dir" value="${basedir}/test/lib" />
+  <property name="test.config.dir.dev" value="${basedir}/src/config" />
+  <property name="test.config.dir.prod" value="${prod.base.dir}/test/config" />
+  <property name="project.lib.dir" value="${basedir}/lib" />
+  <property name="instrumented.classes.dir" value="${cobertura.dir}/instrumented-classes" />
+  <property name="instrumented.classes.dir.prod" value="${cobertura.dir}/instrumented-classes" />
+  <property name="classes.dir.dev" value="${basedir}/WebRoot/WEB-INF/classes" />
+  <property name="classes.dir.prod" value="${prod.base.dir}" />
+  <property name="src" value="${basedir}/src/" />
+  <property name="test.src" value="${basedir}/test/src" />
+  <property name="test.results.junit.dev" value="${basedir}/classes/tests/results/junit" />
+  <property name="test.results.junit.prod" value="${prod.results.dir}/tests/results/junit" />
+  <property name="test.results.cobertura.dev" value="${basedir}/classes/tests/results/cobertura" />
+  <property name="test.results.cobertura.prod" value="${prod.results.dir}/tests/results/cobertura" />
+  <property name="springutils.dir" value="../SpringUtils/bin" />
+  <property name="trailblazer.dir.dev" value="../trailblazer/bin" />
+  <property name="cobertura_ser" value="cobertura/cobertura.ser" />
+
+
+
+  <!-- Classpath to be used by Cobertura but not by junitreport -->
+  <path id="cobertura.classpath">
+    <fileset dir="${cobertura.lib.dir}">
+      <include name="**/*.jar" />
+      <exclude name="**/*1.9.2.jar" />
+    </fileset>
+    <fileset dir="${test.lib.dir}">
+          <include name="**/*.jar" />
+          <exclude name="**/asm*.jar" />
+        </fileset>
+    <fileset dir="${project.lib.dir}">
+      <include name="**/*.jar" />
+      <exclude name="**/asm*.jar" />
+    </fileset>
+  </path>
+
+  <!-- Classpath to be used by junit task -->
+  <path id="test.classpath">
+    <fileset dir="${cobertura.lib.dir}">
+      <include name="**/*.jar" />
+      <exclude name="**/asm*.jar" />
+    </fileset>
+    <fileset dir="${test.lib.dir}">
+      <include name="**/*.jar" />
+  <!--
+      <exclude name="asm-1*.jar" />
+  -->
+    </fileset>
+    <fileset dir="${project.lib.dir}">
+      <include name="**/*.jar" />
+    </fileset>
+  </path>
+
+  <taskdef classpathref="cobertura.classpath" resource="tasks.properties" />
+
+  <target name="clean-dev" description="Tidies up files created during last run">
+    <delete file="${cobertura_ser}" />
+    <delete dir="${test.results.junit.dev}" />
+    <delete dir="${test.results.cobertura.dev}" />
+    <delete dir="${instrumented.classes.dir}" />
+  </target>
+
+  <target name="clean-prod" description="Tidies up files created during last run">
+    <delete file="${cobertura_ser}" />
+    <delete dir="${test.results.junit.prod}" />
+    <delete dir="${test.results.cobertura.prod}" />
+    <delete dir="${instrumented.classes.dir}" />
+  </target>
+
+  <target name="prepare-dev" description="Prepares environment for next test run" depends="clean-dev">
+    <mkdir dir="${test.results.junit.dev}" />
+    <mkdir dir="${test.results.cobertura.dev}" />
+  </target>
+
+  <target name="prepare-prod" description="Prepares environment for next test run" depends="clean-prod">
+    <mkdir dir="${test.results.junit.prod}" />
+    <mkdir dir="${test.results.cobertura.prod}" />
+  </target>
+
+  <target name="instrument-dev"
+        description="Instruments the class files so that coverage can be measured"
+        depends="prepare-dev">
+
+    <cobertura-instrument todir="${instrumented.classes.dir}">
+
+      <fileset dir="${classes.dir.dev}">
+        <include name="**/*.class"/>
+        <exclude name="**/*Test*.class" />
+        <exclude name="**/Mock*.class" />
+      </fileset>
+    </cobertura-instrument>
+
+    <echopath pathid="cobertura.classpath"/>
+  </target>
+
+  <target name="instrument-prod"
+        description="Instruments the class files so that coverage can be measured"
+        depends="prepare-prod">
+    <cobertura-instrument todir="${instrumented.classes.dir}">
+
+      <fileset dir="${classes.dir.prod}">
+        <include name="**/*.class"/>
+        <exclude name="**/*Test*.class" />
+      </fileset>
+    </cobertura-instrument>
+  </target>
+
+  <target name="test-coverage-dev" depends="instrument-dev" description="Runs JUnit and Cobertura and opens reports">
+    <junit fork="yes"
+          printsummary="on"
+          haltonfailure="false"
+          showoutput="true">
+      <sysproperty key="net.sourceforge.cobertura.datafile"
+         file="${cobertura_ser}" />
+
+      <classpath location="${cobertura.lib.dir}" />
+      <classpath location="${instrumented.classes.dir}"/>
+      <classpath refid="test.classpath" />
+      <classpath location="${classes.dir.dev}"/>
+      <classpath location="${test.classes.dir.dev}"/>
+      <classpath location ="${test.config.dir.dev}" />
+      <classpath location="${springutils.dir}" />
+      <classpath location="${trailblazer.dir.dev}" />
+
+      <formatter type="xml" />
+
+      <batchtest todir="${test.results.junit.dev}">
+        <fileset dir="${test.src}">
+          <include name="**/Parms*.java" />
+
+          <exclude name="**/Base*.java" />
+          <exclude name="**/*TestHelper.java" />
+          <exclude name="**/*TestData.java" />
+          <exclude name="**/TestChecksumCalculator.java" />
+          <exclude name="**/ClassToImport.java" />
+          <exclude name="**/AllMyTests.java" />
+          <exclude name="**/CustomDirectorySuiteBuilder.java" />
+          <exclude name="**/PlatformAgnosticSimpleTestFilter.java" />
+          <exclude name="**/RunAllTestSuiteBuilder.java" />
+          <exclude name="**/RunAllTestsBase.java" />
+          <exclude name="**/Freeze.java" />
+          <exclude name="**/TestRunner.java" />
+          <!--tests removed as not work at moment PL to fix at somepoint-->
+          <!--<exclude name="**/Schema*Test.java" />-->
+          <!-- works on PC directly but not from ant - must be a classpath issue but not sure what. -->
+          <exclude name="**/LiveConfigIntegrationTest.java" />
+        </fileset>
+      </batchtest>
+    </junit>
+
+    <junitreport todir="${test.results.junit.dev}">
+      <fileset dir="${test.results.junit.dev}">
+      </fileset>
+      <report format="frames" todir="${test.results.junit.dev}" />
+    </junitreport>
+
+    <pathconvert dirsep="/" property="junitReportUrl">
+      <path>
+        <pathelement location="${test.results.junit.dev}/index.html" />
+      </path>
+    </pathconvert>
+
+    <exec executable="cmd" os="Windows XP">
+      <arg value="/C" />
+      <arg value="${junitReportUrl}" />
+    </exec>
+    <cobertura-report format="html" destdir="${test.results.cobertura.dev}">
+      <fileset dir="${src}">
+        <include name="**/*.java" />
+      </fileset>
+    </cobertura-report>
+    <pathconvert dirsep="/" property="coberturaReportUrl">
+      <path>
+        <pathelement location="${test.results.cobertura.dev}/index.html" />
+      </path>
+    </pathconvert>
+    <exec executable="cmd" os="Windows XP">
+      <arg value="/C" />
+      <arg value="${coberturaReportUrl}" />
+    </exec>
+  </target>
+
+  <target name="test-coverage-no_integ" depends="instrument-dev"
+      description="Runs JUnit and Cobertura and opens reports">
+        <junit fork="yes" jvm="${executable-file-path}\java"
+              printsummary="on"
+              haltonfailure="false"
+              showoutput="true">
+          <sysproperty key="net.sourceforge.cobertura.datafile"
+            file="${cobertura_ser}" />
+
+          <classpath location="${cobertura.lib.dir}" />
+          <classpath location="${instrumented.classes.dir}"/>
+          <classpath refid="test.classpath" />
+          <classpath location="${classes.dir.dev}"/>
+          <classpath location="${test.classes.dir.dev}"/>
+          <classpath location ="${test.config.dir.dev}" />
+          <classpath location="${springutils.dir}" />
+          <classpath location="${trailblazer.dir.dev}" />
+          <classpath location="${build.dir}" />
+
+          <formatter type="xml" />
+
+          <batchtest todir="${test.results.junit.dev}">
+                  <fileset dir="${test.src}">
+                    <include name="**/*.java" />
+                    <exclude name="**/*Integration*.java" />
+
+                    <exclude name="**/Base*.java" />
+                    <exclude name="**/*TestHelper.java" />
+                    <exclude name="**/*TestData.java" />
+                    <exclude name="**/TestChecksumCalculator.java" />
+                    <exclude name="**/ClassToImport.java" />
+                    <exclude name="**/AllMyTests.java" />
+                    <exclude name="**/CustomDirectorySuiteBuilder.java" />
+                    <exclude name="**/PlatformAgnosticSimpleTestFilter.java" />
+                    <exclude name="**/RunAllTestSuiteBuilder.java" />
+                    <exclude name="**/RunAllTestsBase.java" />
+                    <exclude name="**/Freeze.java" />
+                    <exclude name="**/TestRunner.java" />
+                    <exclude name="**/TestSuiteAllUnitTests.java" />
+                    <!--tests removed as not work at moment PL to fix at somepoint-->
+                    <!--<exclude name="**/Schema*Test.java" />-->
+                    <!-- works on PC directly but not from ant - must be a classpath issue but not sure what. -->
+                    <exclude name="**/LiveConfigIntegrationTest.java" />
+                  </fileset>
+                </batchtest>
+        </junit>
+
+    <junitreport todir="${test.results.junit.dev}">
+      <fileset dir="${test.results.junit.dev}">
+      </fileset>
+      <report format="frames" todir="${test.results.junit.dev}" />
+    </junitreport>
+
+    <cobertura-report format="html" destdir="${test.results.cobertura.dev}">
+      <fileset dir="${src}">
+        <include name="**/*.java" />
+      </fileset>
+    </cobertura-report>
+
+  </target>
+
+
+  <!-- = = = = = = = = = = = = = = = = =
+    macrodef: echopath
+    = = = = = = = = = = = = = = = = = -->
+  <macrodef name="echopath">
+    <attribute name="pathid" />
+    <sequential>
+      <property name="line.pathprefix" value="| |-- " />
+      <!-- get given path in a printable form -->
+      <pathconvert pathsep="${line.separator}${line.pathprefix}"
+        property="echo.@{pathid}" refid="@{pathid}">
+      </pathconvert>
+      <echo>
+        Path @{pathid} ${line.pathprefix}${echo.@{pathid}}
+      </echo>
+    </sequential>
+  </macrodef>
+
+
+</project>

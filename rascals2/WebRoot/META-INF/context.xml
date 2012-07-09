@@ -1,4 +1,0 @@
-<Context path="parms" reloadable="true" debug="0">
-  <Environment name="Log4jConfigLocation" value="\config\log4j.properties" type="java.lang.String" override="false"/>
-  <Environment name="RootPathPropertyValue" value="c:/Utilisoft/parms" type="java.lang.String" override="false"/>
-</Context>

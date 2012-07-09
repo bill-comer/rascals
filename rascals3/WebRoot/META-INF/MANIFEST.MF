@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Implementation-version: 1.0_test_version
+Class-Path: 
+

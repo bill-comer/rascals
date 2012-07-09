@@ -1,0 +1,100 @@
+
+.clearer
+{
+  clear:both;
+}
+
+img
+{
+  cursor: pointer;
+}
+
+
+/* Grey box with nice round corners*/
+.box
+{
+  background-color: #EEEDEA;
+  padding:0px 10px;
+}
+.boxTopLeft
+{
+  background: #EEEDEA url(../images/box2_top_left.gif) top left no-repeat;
+  height:7px;
+  cursor: pointer;
+}
+
+/*The Search Box has not got a rounded edge
+  for top left corner so this is used*/
+.boxTopLeftTab
+{
+  background-color: #EEEDEA;
+  height:7px;
+  padding-left:20px;
+}
+.boxTopRight
+{
+  background: #EEEDEA url(../images/box2_top_right.gif) top right no-repeat;
+  height:7px;
+}
+
+.boxBtmLeft
+{
+  background: #EEEDEA url(../images/box2_btm_left.gif) bottom left no-repeat;
+  height:7px;
+  padding-left:20px;
+}
+
+.boxBtmRight
+{
+  background: #EEEDEA url(../images/box2_btm_right.gif) bottom right no-repeat;
+  height:7px;
+}
+
+
+/* Search Box */
+.boxTopLeftLight
+{
+  background: #F6F6F4 url(../images/box2_top_left_light.gif) top left no-repeat;
+  height:7px;
+  cursor: pointer;
+}
+
+.boxTopRightLight
+{
+  background: #F6F6F4 url(../images/box2_top_right_light.gif) top right no-repeat;
+  height:7px;
+  cursor: pointer;
+}
+
+.boxBtmLeftLight
+{
+  background: #F6F6F4 url(../images/box2_btm_left_light.gif) bottom left no-repeat;
+  height:7px;
+  cursor: pointer;
+}
+
+.boxBtmRightLight
+{
+  background: #F6F6F4 url(../images/box2_btm_right_light.gif) bottom right no-repeat;
+  height:7px;
+  cursor: pointer;
+}
+
+.searchTab
+{}
+
+.selectedTab
+{
+  background-color: #EEEDEA;
+  width: 100px;
+  padding-bottom:2px;
+  cursor: pointer;
+  color: #3BA763;
+}
+
+.unselectedTab
+{
+  background-color:#F6F6F4;
+  width: 100px;
+  cursor: pointer;
+}
