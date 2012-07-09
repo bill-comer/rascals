@@ -165,6 +165,9 @@
 			<td>
 			  <a id="saveButton" class="button_input" onclick="this.blur(); cancel();" onmouseover="buttonHover(this);" onmouseout="buttonNormal(this);"><span><spring:message code="button.save"/></span></a>
 			</td>
+      <td>
+        <a id="addRaces" class="button_input" onclick="this.blur(); cancel();" onmouseover="buttonHover(this);" onmouseout="buttonNormal(this);"><span><spring:message code="button.addRaces"/></span></a>
+      </td>
 			
 		</tr>
 	</table>
