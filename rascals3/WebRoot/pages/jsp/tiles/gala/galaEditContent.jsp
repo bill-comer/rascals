@@ -96,6 +96,8 @@
 <form id="adminForm" name="adminForm" method="post" commandName="galasCommand">
 
   <form:hidden path="galasCommand.requestedAction" id="galasCommand.requestedAction"/>
+    
+  <form:hidden path="galasCommand.gala.pk" id="gala.pk"/>
 
 <spring:nestedPath path="galasCommand">
 
@@ -163,10 +165,13 @@
 			  <a id="cancelButton" onclick="window.location.href='listGalas.htm';" class="button_input" onmouseover="buttonHover(this);" onmouseout="buttonNormal(this);"><span><spring:message code="button.cancel"/></span></a>
 			</td>
 			<td>
-			  <a id="saveButton" class="button_input" onclick="this.blur(); cancel();" onmouseover="buttonHover(this);" onmouseout="buttonNormal(this);"><span><spring:message code="button.save"/></span></a>
+			  <a id="saveButton" class="button_input" onclick="this.blur(); save();" onmouseover="buttonHover(this);" onmouseout="buttonNormal(this);"><span><spring:message code="button.save"/></span></a>
 			</td>
       <td>
-        <a id="addRaces" class="button_input" onclick="this.blur(); cancel();" onmouseover="buttonHover(this);" onmouseout="buttonNormal(this);"><span><spring:message code="button.addRaces"/></span></a>
+        <a id="addRaces" class="button_input" onclick="updateRace('addRacesToGala.htm', 'pk', 'gala.pk');" onmouseover="buttonHover(this);" onmouseout="buttonNormal(this);"><span><spring:message code="button.addRaces"/></span></a>
+      </td>
+      <td>
+        <a id="addSwimmers" class="button_input" onclick="updateRace('addSwimmersToGala.htm', 'pk', 'gala.pk');" onmouseover="buttonHover(this);" onmouseout="buttonNormal(this);"><span><spring:message code="button.addSwimmers"/></span></a>
       </td>
 			
 		</tr>
@@ -326,5 +331,13 @@ PageController = {
 $(function(){
   PageController.init();
 });
+
+function updateRace(url, record_id_field_name, recordId)
+{
+	galaPk = adminForm.elements[recordId].value;
+
+  window.location.href = url + '?' + record_id_field_name + '=' + galaPk;
+	return;
+}
 
 </script>
