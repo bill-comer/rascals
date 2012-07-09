@@ -1,0 +1,248 @@
+.tabBarContainer
+{
+  margin: 0 auto;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  font-weight: bold;
+  color:white;
+  margin:0px;
+  padding:0px;
+  width:100%;
+  height:20px;
+  top:35px;
+  position:absolute;
+  left:0px;
+  align:left;
+  text-align:left;
+  z-index:999;
+  cursor:default;
+}
+
+#menu
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+  color:white;
+  background-color:#FFC125;
+	float: left;
+	list-style: none;
+	line-height: 2;
+	padding: 0px;
+	margin: 0px 0px 1px 0px;
+	height:20px;
+	z-index:999;
+	cursor:default;
+}
+
+#menu ul
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+  color:white;
+	float: left;
+	list-style: none;
+	padding: 0px;
+	margin: 0px 0px 1px 0px;
+	width:150px;
+	z-index:999;
+	cursor:pointer;
+}
+
+#menu a
+{
+	display: block;
+	width:150px;
+	color:white;
+	font-weight: bold;
+	text-decoration: none;
+	text-align:center;
+	height:20px;
+	z-index:999;
+	cursor:pointer;
+}
+
+#menu a.time
+{
+	display: block;
+	width:150px;
+	color:white;
+	text-decoration: none;
+	text-align:center;
+	height:20px;
+	z-index:999;
+	cursor:default;
+}
+
+#menu a.arrow
+{
+    background: url(../images/tabs_arrow.gif) center right no-repeat;
+}
+
+#menu li
+{
+    padding-bottom:0px;
+	float: left;
+	padding: 0px;
+	width: 150px;
+	background-color:orange;
+	z-index:999;
+	cursor:default;
+}
+
+#menu li.right
+{
+	float: right;
+	right:0px;
+	padding: 0;
+	width: 150px;
+	z-index:999;
+	padding-bottom:0px;
+	cursor:default;
+}
+
+#menu li.rightTime
+{
+	float: right;
+	background-color:#FFC125;
+	right:0px;
+	padding-left: 100px;
+	margin-left:100px;
+	width: 150px;
+	color:white;
+	z-index:999;
+	padding-bottom:0px;
+	cursor:default;
+}
+
+#menu li ul
+{
+	position: absolute;
+	left: -999px;
+	height: auto;
+	width:150px;
+	font-weight: normal;
+	margin: 0;
+	z-index:999;
+}
+
+#menu li li
+{
+	width: 146px;
+	z-index:999;
+}
+
+
+#menu li ul a
+{
+	width: 146px;
+    z-index:999;
+}
+
+#menu li ul a.bottom
+{
+	width: 146px;
+	z-index:999;
+}
+
+#menu a.bottomArrow
+{
+  width: 146px;
+	z-index:999;
+  background: url(../images/tabs_arrow.gif) center right no-repeat;
+}
+
+#menu li ul ul
+{
+	margin: -18px 0 0 130px;
+	z-index:999;
+}
+
+#menu li ul ul.wide
+{
+	margin: -18px 0 0 180px;
+	z-index:999;
+}
+
+#menu li ul ul.extra_wide
+{
+	margin: -18px 0 0 230px;
+	z-index:999;
+}
+
+#menu li ul li ul.wide
+{
+	width:200px;
+	z-index:999;
+}
+
+#menu li ul li ul.extra_wide
+{
+	width:250px;
+	z-index:999;
+}
+
+#menu li ul li ul li.wide
+{
+	width:196px;
+	z-index:999;
+}
+
+#menu li ul li ul li.extra_wide
+{
+	width:246px;
+	z-index:999;
+}
+
+
+#menu li ul li ul li a
+{
+	width: 146px;
+	text-align:center;
+	align:center;
+	z-index:999;
+}
+
+#menu li ul li ul li.wide a
+{
+	width: 196px;
+	text-align:center;
+	align:center;
+	z-index:999;
+}
+
+#menu li ul li ul li.extra_wide a
+{
+	width: 246px;
+	text-align:center;
+	align:center;
+	z-index:999;
+}
+
+#menu li ul li ul li.wide a.bottom
+{
+	width: 196px;
+	text-align:center;
+	align:center;
+	z-index:999;
+}
+
+#menu li:hover ul ul, #menu li:hover ul ul ul, #menu li.sfhover ul ul, #menu li.sfhover ul ul ul
+{
+	left: -999px;
+	z-index:999;
+	
+}
+
+#menu li:hover ul, #menu li li:hover ul, #menu li li li:hover ul, #menu li.sfhover ul, #menu li li.sfhover ul, #menu li li li.sfhover ul
+{
+	left: auto;
+	z-index:999;
+}
+
+#menu li:hover, #menu li.sfhover
+{
+	background-color:#FFC125;
+    z-index:999;
+}

@@ -1,0 +1,74 @@
+
+.menu_div {
+  position: absolute;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  background-color: white;
+  padding: 5px 0 5px 5px;
+}
+
+.menu_header {
+  font-weight: bold;
+  color: #333333;
+  padding-bottom: 10px;
+}
+
+.menu_link {
+  font-weight: normal;
+  color: #333333;
+}
+
+.menu_link:HOVER {
+  font-weight: normal;
+  color: #3BA763;
+  cursor: hand;
+}
+
+.menu_item {
+  border-top: 1px solid #CDCDCD;
+  text-indent: 10px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.menu_item_last {
+  border-bottom: 1px solid #CDCDCD;
+}
+
+.menu_pipe {
+  color: gray;
+  font-size: 10px;
+}
+
+.menu_group {
+  font-size: 10px;
+  color: #333333;
+  padding: 0 5px 0 5px;
+}
+
+.menu_group_no_access {
+  font-size: 10px;
+  color: grey;
+  padding: 0 5px 0 5px;
+}
+
+.menu_group_no_hover {
+  font-size: 10px;
+  color: #333333;
+  padding: 0 5px 0 5px;
+}
+
+.menu_container {
+  border-top: solid;
+  border-width: 1px;
+  border-color: #343434;
+  padding-top: 0px;
+  background-image: url('../images/degrade.gif')
+}
+
+.menu_iframe {
+  position: absolute;
+  border: none;
+  z-index: 0;
+}

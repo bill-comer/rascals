@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+  xmlns:jee="http://www.springframework.org/schema/jee" xmlns:tx="http://www.springframework.org/schema/tx"
+  xmlns:util="http://www.springframework.org/schema/util" xmlns:lang="http://www.springframework.org/schema/lang"
+  xmlns:jms="http://www.springframework.org/schema/jms" xmlns:context="http://www.springframework.org/schema/context"
+  xmlns:p="http://www.springframework.org/schema/p"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+              http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+              http://www.springframework.org/schema/aop
+              http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+              http://www.springframework.org/schema/tx
+              http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+              http://www.springframework.org/schema/jee
+              http://www.springframework.org/schema/jee/spring-jee-2.5.xsd
+              http://www.springframework.org/schema/lang
+              http://www.springframework.org/schema/lang/spring-lang-2.5.xsd
+              http://www.springframework.org/schema/jms
+              http://www.springframework.org/schema/jms/spring-jms-2.5.xsd
+              http://www.springframework.org/schema/util
+              http://www.springframework.org/schema/util/spring-util-2.5.xsd
+              http://www.springframework.org/schema/context
+              http://www.springframework.org/schema/context/spring-context-2.5.xsd"  default-autowire="byName">
+
+
+  <bean id="parms.database.session.factory.base"
+    class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean"
+    abstract="true">
+    <property name="packagesToScan">
+      <list>
+        <value>uk.co.utilisoft.rascals.domain</value>
+        <value>uk.co.utilisoft.parms.domain</value>
+        <value>uk.co.utilisoft.parmsmop.domain</value>
+        <value>uk.co.utilisoft.afms.domain</value>
+      </list>
+    </property>
+    <property name="annotatedPackages">
+      <list>
+        <value>uk.co.utilisoft.rascals.domain</value>
+        <value>uk.co.utilisoft.parms.domain</value>
+        <value>uk.co.utilisoft.parmsmop.domain</value>
+        <value>uk.co.utilisoft.afms.domain</value>
+      </list>
+    </property>
+    <property name="dataSource" ref="parms.data.source" />
+    <property name="eventListeners">
+      <map>
+        <entry key="pre-update" value-ref="parms.beanValidationEventListener"/>
+        <entry key="pre-insert" value-ref="parms.beanValidationEventListener"/>
+        <entry key="pre-delete" value-ref="parms.beanValidationEventListener"/>
+      </map>
+
+    </property>
+  </bean>
+
+  <bean id="parms.beanValidationEventListener"
+        class="org.hibernate.cfg.beanvalidation.BeanValidationEventListener"/>
+
+</beans>

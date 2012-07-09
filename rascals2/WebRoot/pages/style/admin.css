@@ -1,0 +1,183 @@
+
+table.adminEdit
+{
+  font-family:arial;
+  text-align: center;
+  border: 0px solid black;
+  border-collapse: collapse;
+    font-size: 8pt;
+  vertical-align: middle;
+  width:90%;
+}
+
+table.adminEdit th
+{
+  background-color: #D4D4D4;
+  font-size: 8pt;
+  padding: 4px;
+  border-style: solid;
+  border-color: grey;
+  border-width: 1px;
+}
+
+table.adminEdit td
+{
+  font-size: 8pt;
+  color: #000000;
+  padding: 6px 6px 6px 6px;
+  border: 1px solid grey;
+  text-align:center;
+  background-color: white;
+  border-collapse: collapse;
+}
+
+
+table.adminEdit td input.small
+{
+  width: auto;
+}
+
+table.adminEdit td.plain
+{
+  border: none;
+}
+
+.roll
+{
+  background-color: #F7EDE5;
+  cursor: pointer;
+}
+
+.over
+{
+  background-color: white;
+}
+
+.adminListBody
+{
+   font-family:arial;
+  font-size:8px;
+  border-collapse:collapse;
+  border: 1px solid #F7D9BC;
+}
+
+.adminListBody td
+{
+  border: 1px solid #F7D9BC;
+  text-align: center;
+  font-size: 14px;
+  color: #000000;
+  height: 25px;
+}
+
+.adminListBody td.roll
+{
+  border: 1px solid #F7D9BC;
+  text-align: center;
+  font-size: 14px;
+  color: #000000;
+  height: 25px;
+  background-color: #F7EDE5;
+  cursor: pointer;
+}
+
+.adminListHeader
+{
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size:14px;
+  border-collapse:collapse;
+  border: 1px solid #F7D9BC;
+  background-color: #F7A718;
+  color: white;
+  text-align: center;
+}
+
+.adminListHeader th
+{
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size:14px;
+  border-collapse:collapse;
+  border: 1px solid #F7D9BC;
+  background-color: #F7A718;
+  color: white;
+  text-align: center;
+  height: 25px;
+}
+
+.adminListFooter
+{
+  height: 10px;
+  max-height: 10px;
+  border-collapse:collapse;
+  border: 1px solid #F7D9BC;
+  background-color: #F7A718;
+  height: 12px;
+}
+
+.fielderror
+{
+  color: #990000;
+  font-weight: normal;
+}
+
+.spaced_div
+{
+  padding: 10px;
+}
+
+.textInput
+{
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size:13px;
+  width:150px;
+}
+
+.largeTextInput
+{
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size:13px;
+  width:250px;
+}
+
+.normalTextField
+{
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  text-align: left;
+  font-weight: normal;
+}
+
+.extra_small_combo_input
+{
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  align: center;
+  width:50px;
+  text-align:center;
+}
+
+.small_combo_input
+{
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  align: center;
+  width:100px;
+  text-align:center;
+}
+
+.combo_input
+{
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  align: center;
+  width:180px;
+  text-align:center;
+}
+
+.large_combo_input
+{
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  align: center;
+  width:300px;
+}

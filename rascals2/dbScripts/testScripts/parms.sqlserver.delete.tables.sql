@@ -1,0 +1,33 @@
+-- delete all parms tables and constraints
+drop table dbo.PARMS_AGENT_GSP_LINK;
+drop table dbo.PARMS_DPI_FILE_DATA;
+drop table dbo.PARMS_P0028_ACTIVE;
+drop table dbo.PARMS_AGENT;
+drop table dbo.PARMS_GRID_SUPPLY_POINT;
+drop table dbo.PARMS_DPI_FILE;
+drop table dbo.PARMS_P0028_DATA;
+drop table dbo.PARMS_P0028_FILE_DATA;
+drop table dbo.PARMS_P0028_FILE;
+drop table dbo.PARMS_P0028_UPLOAD_ERROR;
+drop table dbo.PARMS_SP04_DATA;
+drop table dbo.PARMS_SP04_FILE;
+drop table dbo.PARMS_SUPPLIER;
+drop table dbo.PARMS_AUDIT;
+drop table dbo.PARMS_SP04_FROM_AFMS_MPANS;
+drop table dbo.PARMS_CONFIGURATION_PARAMETER;
+drop table dbo.PARMS_GSP_DEFINITION;
+drop table dbo.PARMS_SERIAL_CONFIG;
+drop table dbo.PARMS_VERSION;
+drop table dbo.PARMS_VERSION_HISTORY;
+
+drop table QRTZ_CALENDARS;
+drop table QRTZ_CRON_TRIGGERS;
+drop table QRTZ_BLOB_TRIGGERS;
+drop table QRTZ_FIRED_TRIGGERS;
+drop table QRTZ_PAUSED_TRIGGER_GRPS;
+drop table QRTZ_TRIGGER_LISTENERS;
+drop table QRTZ_SIMPLE_TRIGGERS;
+drop table QRTZ_TRIGGERS;
+drop table QRTZ_SCHEDULER_STATE;
+drop table QRTZ_JOB_LISTENERS;
+drop table QRTZ_JOB_DETAILS;
