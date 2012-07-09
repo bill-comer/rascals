@@ -137,14 +137,16 @@
 					</spring:bind></td>
 			</tr>
 
+      <tr>
+        <th><spring:message code="field.admin.gala.postcode"/></th>
 
-        
+        <td align="left"><spring:bind path="gala.postcode">
+            <input id="${status.expression}" class="text"
+              name="${status.expression}" type="text" value="${status.value}" />
 
-        
-    <tag:detailField type="text" title="League" className="largeTextField" validationType="string" 
-        allowNull="false" maxLength="500" excludedValues="new Array()" 
-        messageCode="field.admin.gala.postcode" path="gala.postcode"/>
-
+            <a href="https://maps.google.co.uk/maps?q=${status.value}" target="_blank">Test ${status.value}</a>
+          </spring:bind></td>
+      </tr>
 
     <tr>
         <th><spring:message code="field.admin.gala.home.or.away"/></th>
@@ -170,9 +172,11 @@
       <td>
         <a id="addRaces" class="button_input" onclick="updateRace('addRacesToGala.htm', 'pk', 'gala.pk');" onmouseover="buttonHover(this);" onmouseout="buttonNormal(this);"><span><spring:message code="button.addRaces"/></span></a>
       </td>
+      <!-- 
       <td>
         <a id="addSwimmers" class="button_input" onclick="updateRace('addSwimmersToGala.htm', 'pk', 'gala.pk');" onmouseover="buttonHover(this);" onmouseout="buttonNormal(this);"><span><spring:message code="button.addSwimmers"/></span></a>
       </td>
+       -->
 			
 		</tr>
 	</table>
