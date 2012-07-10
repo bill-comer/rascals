@@ -121,6 +121,35 @@ public class GalasController extends CrudController
    * @param aCommand Command object.
    * @return ModelAndView for the redirected page.
    */
+  @RequestMapping(method = RequestMethod.GET,  value="/addRacesToGala.htm", params = "pk")
+  public ModelAndView addRacesToGala(HttpServletRequest aRequest, @RequestParam("pk") String aGalaId) throws Exception
+  {
+    //todo 
+    Long id = new Long(aGalaId);
+    Gala gala = galaService.getForId(id);
+    
+    aRequest.setAttribute("title", getObjectName());
+    GalaCommand command = (GalaCommand) getCommand();
+    command.setGala(gala);
+    
+    command.setHomeAway(gala.isAtHome());
+    
+
+    List<Object> list = new ArrayList<Object>();
+    for (int i = 0; i < getNumberOfIdentifiers(); i++)
+    {
+      list.add(null);
+    }
+    command.setIdentifier(list);
+
+    command.setCanCreateNew(canCreateNew());
+
+    ModelAndView mav = new ModelAndView(getViewName());
+    mav.addObject(getCommandName(), command);
+    return mav;
+
+  }
+  
   @RequestMapping(method = RequestMethod.POST)
   public ModelAndView createEditGala(HttpServletRequest aRequest,
                                @ModelAttribute(mCommandName) GalaCommand aCommand) throws Exception

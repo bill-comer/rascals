@@ -45,6 +45,7 @@
         <prop key="/listGalas.htm">project.listGalasController</prop>
         <prop key="/createGala.htm">project.galasController</prop>
         <prop key="/editGala.htm">project.galasController</prop>
+        <prop key="/addRacesToGala.htm">project.galasController</prop>
         
         <prop key="/listBoySwimmers.htm">project.listSwimmersController</prop>
         <prop key="/listGirlSwimmers.htm">project.listSwimmersController</prop>
