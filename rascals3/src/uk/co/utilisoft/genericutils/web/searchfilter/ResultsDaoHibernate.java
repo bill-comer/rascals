@@ -268,7 +268,7 @@ public class ResultsDaoHibernate<T extends DomainObject<?, ?>, S extends Seriali
                                final int maxResults,
                                final boolean aIncludeGroupBySql)
   {
-    return getData(aSearchCriteria, aInitialFilters, aSortOrder, firstResults, maxResults, false, aIncludeGroupBySql);
+    return getData(aSearchCriteria, aInitialFilters, aSortOrder, firstResults, maxResults, true, aIncludeGroupBySql);
   }
 
   protected void doWhileInSession(Session aSession, List< T > aList)

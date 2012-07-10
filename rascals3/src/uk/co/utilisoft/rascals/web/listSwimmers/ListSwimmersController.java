@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import uk.co.utilisoft.genericutils.web.searchfilter.CellDTO;
+import uk.co.utilisoft.genericutils.web.searchfilter.QueryStringBindValueCombo;
 import uk.co.utilisoft.genericutils.web.searchfilter.ResultsDaoHibernate;
 import uk.co.utilisoft.genericutils.web.searchfilter.SearchFilterCommand;
 import uk.co.utilisoft.genericutils.web.searchfilter.SearchFilterController;
@@ -81,10 +82,13 @@ public class ListSwimmersController extends SearchFilterController<ListSwimmersD
     return true;
   }
 
+
   
   @RequestMapping(value = "/listBoySwimmers.htm", method = RequestMethod.GET)
   public ModelAndView listBoySwimmersOrdered(HttpServletRequest aRequest) throws Exception
   {
+    ((ListSwimmersDataSearchDaoHibernate)mListDataSearchDao).setMale(true);
+    
     return formSearchBackingObject(aRequest);
   }
 
@@ -92,6 +96,8 @@ public class ListSwimmersController extends SearchFilterController<ListSwimmersD
   @RequestMapping(value = "/listGirlSwimmers.htm", method = RequestMethod.GET)
   public ModelAndView listGirkSwimmersOrdered(HttpServletRequest aRequest) throws Exception
   {
+    ((ListSwimmersDataSearchDaoHibernate)mListDataSearchDao).setMale(false);
+    
     return formSearchBackingObject(aRequest);
   }
   
@@ -210,7 +216,6 @@ public class ListSwimmersController extends SearchFilterController<ListSwimmersD
   {
     return  getResultsDao().getAlias() + ".surname";
   }
- 
 
 
 }
