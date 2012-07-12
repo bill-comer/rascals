@@ -25,6 +25,5 @@
   <import resource="classpath*:config/parms-db-master.xml" />
   <import resource="classpath*:config/parms-controllers.xml" />
 
-  <import resource="classpath*:config/parms-aop.xml" />
 
 </beans>

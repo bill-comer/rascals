@@ -28,6 +28,21 @@ create table SWIMMER (
    MALE tinyint not null
    
    );
+   
+   
+create table RACE (
+   PK bigint identity primary key,
+   VERSION bigint not null,
+   LAST_UPDATED datetime not null,
+   
+   GALA_FK bigint not null,
+   
+   RACE_TYPE varchar(8) not null,
+   DISTANCE bigint not null,
+   MALE tinyint not null,
+   STROKE varchar(10) not null,
+   AGE bigint not null,
+   );
 
 
 update PARMS_VERSION set VERSION = '0001', LAST_UPD = CURRENT_TIMESTAMP;
