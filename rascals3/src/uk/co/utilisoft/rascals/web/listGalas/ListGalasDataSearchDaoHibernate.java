@@ -4,11 +4,7 @@ import org.springframework.stereotype.Repository;
 
 import uk.co.utilisoft.genericutils.web.searchfilter.GenericResultsDaoHibernate;
 import uk.co.utilisoft.rascals.domain.Gala;
-/**
 
- * @author Philip Lau
- * @version 1.0
- */
 @Repository("project.listGalasSearchDao")
 public class ListGalasDataSearchDaoHibernate extends GenericResultsDaoHibernate<ListGalasDataSearchWrapper>
 {

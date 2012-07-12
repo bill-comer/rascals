@@ -28,12 +28,7 @@ import uk.co.utilisoft.parms.domain.BaseVersionedDomainObject;
 import uk.co.utilisoft.rascals.domain.Gala;
 import uk.co.utilisoft.table.TableConstants;
 import uk.co.utilisoft.table.model.Field;
-/**
- * Lists Tests in the configurable directory defined by the bean project.test.suite.directory.
- *
- * @author Bill COmer
- * @version 1.0
- */
+
 
 @Controller("project.listGalasController")
 public class ListGalasController extends SearchFilterController<ListGalasDataSearchWrapper, Long, ListGalasDataCommand , Gala>
