@@ -14,6 +14,11 @@
     <put name="bottom_buttons" value="/pages/jsp/tiles/searchFilter/listGalaButtons.jsp"/>
   </definition>
   
+  <definition name="parms.listGalaRaces" extends="project.searchFilterLayout">
+    <put name="table_name" value="Races"/>
+    <put name="bottom_buttons" value="/pages/jsp/tiles/searchFilter/listGalaRacesButtons.jsp"/>
+  </definition>
+  
 
   <definition name="parms.createGala" extends="generic.genericLayout" >
     <put name="windowContent" value="/pages/jsp/tiles/gala/galaEditContent.jsp" />
