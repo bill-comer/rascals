@@ -28,7 +28,7 @@
   
   <!-- list test suites --> 
   <definition name="parms.listSwimmers" extends="project.searchFilterLayout">
-    <put name="table_name" value="Galas"/>
+    <put name="table_name" value="Swimmers"/>
     <put name="bottom_buttons" value="/pages/jsp/tiles/searchFilter/listSwimmerButtons.jsp"/>
   </definition>
   

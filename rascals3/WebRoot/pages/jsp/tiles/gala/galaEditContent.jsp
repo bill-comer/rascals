@@ -170,7 +170,7 @@
 			  <a id="saveButton" class="button_input" onclick="this.blur(); save();" onmouseover="buttonHover(this);" onmouseout="buttonNormal(this);"><span><spring:message code="button.save"/></span></a>
 			</td>
       <td>
-        <a id="addRaces" class="button_input" onclick="updateRace('addRacesToGala.htm', 'pk', 'gala.pk');" onmouseover="buttonHover(this);" onmouseout="buttonNormal(this);"><span><spring:message code="button.addRaces"/></span></a>
+        <a id="addRaces" class="button_input" onclick="updateRace('listGalaRaces.htm', 'pk', 'gala.pk');" onmouseover="buttonHover(this);" onmouseout="buttonNormal(this);"><span><spring:message code="button.addRaces"/></span></a>
       </td>
       <!-- 
       <td>

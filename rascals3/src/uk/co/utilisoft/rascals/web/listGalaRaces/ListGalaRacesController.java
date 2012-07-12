@@ -16,6 +16,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import uk.co.utilisoft.genericutils.web.searchfilter.CellDTO;
@@ -36,6 +37,8 @@ public class ListGalaRacesController extends SearchFilterController<ListGalaRace
     implements SearchFilterControllerInterface<ListGalaRacesDataCommand>
 {
   public static String DISPLAY_MESSAGE = "DISPLAY_MESSAGE";
+
+  public static final String PK = "pk";
 
   @Autowired(required = true)
   @Qualifier("project.listGalaRacesSearchDao")
@@ -78,8 +81,8 @@ public class ListGalaRacesController extends SearchFilterController<ListGalaRace
   }
 
   
-  @RequestMapping(value = "/listGalaRaces.htm", method = RequestMethod.GET)
-  public ModelAndView listTestResultsOrdered(HttpServletRequest aRequest) throws Exception
+  @RequestMapping(value = "/listGalaRaces.htm", method = RequestMethod.GET, params = PK)
+  public ModelAndView listTestResultsOrdered(HttpServletRequest aRequest, @RequestParam(PK) String galaPk) throws Exception
   {
     return formSearchBackingObject(aRequest);
   }
