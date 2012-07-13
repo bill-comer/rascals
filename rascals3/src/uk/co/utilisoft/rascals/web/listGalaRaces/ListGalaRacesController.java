@@ -26,6 +26,7 @@ import uk.co.utilisoft.genericutils.web.searchfilter.SearchFilterController;
 import uk.co.utilisoft.genericutils.web.searchfilter.SearchFilterControllerInterface;
 import uk.co.utilisoft.genericutils.web.searchfilter.SearchFilterValidator;
 import uk.co.utilisoft.parms.domain.BaseVersionedDomainObject;
+import uk.co.utilisoft.parms.web.dto.SearchCriteriaDTO;
 import uk.co.utilisoft.rascals.domain.Gala;
 import uk.co.utilisoft.rascals.domain.Race;
 import uk.co.utilisoft.table.TableConstants;
